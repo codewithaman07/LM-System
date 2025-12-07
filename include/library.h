@@ -1,26 +1,33 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
-#include<bits/stdc++.h>
+
+#include <vector>
 #include "book.h"
 #include "member.h"
+
 using namespace std;
 
-class Library{
+class Library {
 private:
     vector<Book> books;
     vector<Member> members;
 
+    Book* findBookById(int bookId);
+    Member* findMemberById(int memberId);
+
 public:
-    void addBook(Book& book);
+    Library();
+
+    void addBook(const Book &book);
     void removeBook(int bookId);
-    void displayBooks();
-    void addMember(Member& member);
+    void displayBooks() const;
+
+    void addMember(const Member &member);
     void removeMember(int memberId);
-    void displayMembers();
+    void displayMembers() const;
+
     void borrowBook(int bookId, int memberId);
     void returnBook(int bookId, int memberId);
-    vector<Book> getAvailableBooks();
-
 };
 
-#endif
+#endif 
